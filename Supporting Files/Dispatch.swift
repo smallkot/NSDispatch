@@ -1,6 +1,9 @@
 //
 //  Dispatch.swift
 //  NSDispatch
+//  
+//  ABSTRACT: Swift file containing class and method names for the Swift implementation of libdispatch
+//  Read more: https://github.com/apple/swift-evolution/blob/master/proposals/0088-libdispatch-for-swift3.md
 //
 
 import Foundation

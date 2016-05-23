@@ -49,9 +49,8 @@
 		4D930E64158D71F7009538FB /* NSDispatchGroup.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = NSDispatchGroup.m; sourceTree = "<group>"; };
 		4D930E68158D728B009538FB /* NSDispatchSemaphore.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = NSDispatchSemaphore.h; sourceTree = "<group>"; };
 		4D930E69158D728B009538FB /* NSDispatchSemaphore.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = NSDispatchSemaphore.m; sourceTree = "<group>"; };
-		4DCE43901833EC2A009180F4 /* NSDispatch.podspec */ = {isa = PBXFileReference; lastKnownFileType = text; path = NSDispatch.podspec; sourceTree = SOURCE_ROOT; };
 		4DD3B37718344525007E05BA /* NSDispatchMacros.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = NSDispatchMacros.h; sourceTree = "<group>"; };
-		DB6FF9001CF2AB4E00C82664 /* Dispatch.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Dispatch.swift; sourceTree = "<group>"; };
+		DB6FF9001CF2AB4E00C82664 /* Dispatch.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = Dispatch.swift; path = "../Supporting Files/Dispatch.swift"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -114,7 +113,6 @@
 				4D930E68158D728B009538FB /* NSDispatchSemaphore.h */,
 				4D930E69158D728B009538FB /* NSDispatchSemaphore.m */,
 				4DD3B37718344525007E05BA /* NSDispatchMacros.h */,
-				DB6FF9001CF2AB4E00C82664 /* Dispatch.swift */,
 			);
 			path = NSDispatch;
 			sourceTree = "<group>";
@@ -130,7 +128,7 @@
 		4D6F6032158414F70023150C /* Supporting Files */ = {
 			isa = PBXGroup;
 			children = (
-				4DCE43901833EC2A009180F4 /* NSDispatch.podspec */,
+				DB6FF9001CF2AB4E00C82664 /* Dispatch.swift */,
 				4D6F6033158414F70023150C /* NSDispatchTests-Info.plist */,
 				4D6F6034158414F70023150C /* InfoPlist.strings */,
 			);
