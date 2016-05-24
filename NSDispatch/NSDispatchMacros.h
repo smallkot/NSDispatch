@@ -8,8 +8,8 @@
  *
  *  @param block The block to execute once.
  */
-#ifndef NSDispatchExecOnce
-#define NSDispatchExecOnce(block) \
+#ifndef NSDispatchOnce
+#define NSDispatchOnce(block) \
 { \
   static dispatch_once_t predicate = 0; \
   dispatch_once(&predicate, block); \
@@ -17,7 +17,7 @@
 #endif
 
 /**
- *  Inserts code that declares, creates, and returns a single instance, regardless of how many times the macro is invoked.
+ *  Inserts code that declares, creates, and returns a single instance (a singleton), regardless of how many times the macro is invoked.
  *
  *  @param block A block that creates and returns the instance value.
  */

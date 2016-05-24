@@ -14,7 +14,7 @@
  *
  *  @return The dispatch queue object.
  */
-@property (strong, readonly, nonatomic) dispatch_queue_t dispatchQueue;
+@property (strong, readonly, nonatomic) dispatch_queue_t queue;
 
 /**
  *  Returns the serial dispatch queue associated with the application’s main thread.
@@ -22,7 +22,7 @@
  *  @return The main queue. This queue is created automatically on behalf of the main thread before main is called.
  *  @see dispatch_get_main_queue()
  */
-+ (NSDispatchQueue *)mainQueue;
++ (instancetype)mainQueue;
 
 /**
  *  Returns the default priority global concurrent queue.
@@ -30,7 +30,7 @@
  *  @return The queue.
  *  @see dispatch_get_global_queue()
  */
-+ (NSDispatchQueue *)globalQueue;
++ (instancetype)globalQueue;
 
 /**
  *  Returns the high priority global concurrent queue.
@@ -38,7 +38,7 @@
  *  @return The queue.
  *  @see dispatch_get_global_queue()
  */
-+ (NSDispatchQueue *)highPriorityGlobalQueue;
++ (instancetype)highPriorityGlobalQueue;
 
 /**
  *  Returns the low priority global concurrent queue.
@@ -46,7 +46,7 @@
  *  @return The queue.
  *  @see dispatch_get_global_queue()
  */
-+ (NSDispatchQueue *)lowPriorityGlobalQueue;
++ (instancetype)lowPriorityGlobalQueue;
 
 /**
  *  Returns the background priority global concurrent queue.
@@ -54,7 +54,7 @@
  *  @return The queue.
  *  @see dispatch_get_global_queue()
  */
-+ (NSDispatchQueue *)backgroundPriorityGlobalQueue;
++ (instancetype)backgroundPriorityGlobalQueue;
 
 /**
  *  Initializes a new serial queue.
@@ -65,20 +65,18 @@
 - (instancetype)init;
 
 /**
- *  Initializes a new serial queue.
- *
- *  @return The initialized instance.
+ *  Creates a new serial queue.
+ 
  *  @see dispatch_queue_create()
  */
-- (instancetype)initSerial;
++ (instancetype)newSerial;
 
 /**
- *  Initializes a new concurrent queue.
+ *  Creates a new concurrent queue.
  *
- *  @return The initialized instance.
  *  @see dispatch_queue_create()
  */
-- (instancetype)initConcurrent;
++ (instancetype)newConcurrent;
 
 /**
  *  The NSDispatchQueue designated initializer.
@@ -86,7 +84,7 @@
  *  @param dispatchQueue A dispatch_queue_t object.
  *  @return The initialized instance.
  */
-- (instancetype)initWithDispatchQueue:(dispatch_queue_t)dispatchQueue;
+- (instancetype)initWithDispatchQueue:(dispatch_queue_t)queue;
 
 /**
  *  Submits a block for asynchronous execution on the queue.

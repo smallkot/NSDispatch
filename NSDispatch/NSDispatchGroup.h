@@ -12,7 +12,7 @@
  *
  *  @return The dispatch group object.
  */
-@property (strong, readonly, nonatomic) dispatch_group_t dispatchGroup;
+@property (strong, readonly, nonatomic) dispatch_group_t group;
 
 /**
  *  Initializes a new group.
@@ -28,7 +28,7 @@
  *  @param dispatchGroup A dispatch_group_t object.
  *  @return The initialized instance.
  */
-- (instancetype)initWithDispatchGroup:(dispatch_group_t)dispatchGroup;
+- (instancetype)initWithDispatchGroup:(dispatch_group_t)group;
 
 /**
  *  Explicitly indicates that a block has entered the group.

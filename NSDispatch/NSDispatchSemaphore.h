@@ -12,7 +12,7 @@
  *
  *  @return The dispatch semaphore object.
  */
-@property (strong, readonly, nonatomic) dispatch_semaphore_t dispatchSemaphore;
+@property (strong, readonly, nonatomic) dispatch_semaphore_t semaphore;
 
 /**
  *  Initializes a new semaphore with starting value 0.
