@@ -1,5 +1,5 @@
 # NSDispatch
-NSDispatch is an Objective-C wrapper for libispatch. NSDispatch's class and method names are based off of the [offical Apple implementation of libdispatch for Swift 3](https://github.com/apple/swift-evolution/blob/master/proposals/0088-libdispatch-for-swift3.md), and use Objective-C and Cocoa API naming conventions.
+NSDispatch is an Objective-C wrapper for libispatch. NSDispatch's class and method names are based off of the [official Apple implementation of libdispatch for Swift 3](https://github.com/apple/swift-evolution/blob/master/proposals/0088-libdispatch-for-swift3.md), and use Objective-C and Cocoa API naming conventions.
 
 NSDispatch is forked from [GCDObjC](https://github.com/mjmsmith/gcdobjc), who's four main aims are to:
 
