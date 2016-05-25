@@ -30,7 +30,7 @@
   NSDispatchQueue *queue = [NSDispatchQueue new];
   __block int32_t val = 0;
   
-  [queue queueBlock:^{
+  [queue asynchronously:^{
     OSAtomicIncrement32(&val);
     [semaphore signal];
   }];
@@ -45,7 +45,7 @@
   NSDate *then = [NSDate new];
   __block int32_t val = 0;
   
-  [queue queueBlock:^{
+  [queue execute:^{
     OSAtomicIncrement32(&val);
     [semaphore signal];
   } afterDelay:0.5];
@@ -63,7 +63,7 @@
   NSDispatchQueue *queue = [NSDispatchQueue new];
   __block int32_t val = 0;
   
-  [queue queueAndAwaitBlock:^{ OSAtomicIncrement32(&val); }];
+  [queue synchronously:^{ OSAtomicIncrement32(&val); }];
   
   XCTAssertEqual(val, 1);
 }
@@ -72,7 +72,7 @@
   NSDispatchQueue *queue = [[NSDispatchQueue alloc] initConcurrent];
   __block int32_t val = 0;
   
-  [queue queueAndAwaitBlock:^(size_t i){ OSAtomicIncrement32(&val); } iterationCount:100];
+  [queue synchronously:^(size_t i){ OSAtomicIncrement32(&val); } iterationCount:100];
   
   XCTAssertEqual(val, 100);
 }
@@ -83,7 +83,7 @@
   __block int32_t val = 0;
   
   for (int i = 0; i < 100; ++i) {
-    [queue queueBlock:^{ OSAtomicIncrement32(&val); } inGroup:group];
+    [queue asynchronously:^{ OSAtomicIncrement32(&val); } inGroup:group];
   }
   
   [group wait];
@@ -98,9 +98,9 @@
   __block int32_t notifyVal = 0;
   
   for (int i = 0; i < 100; ++i) {
-    [queue queueBlock:^{ OSAtomicIncrement32(&val); } inGroup:group];
+    [queue asynchronously:^{ OSAtomicIncrement32(&val); } inGroup:group];
   }
-  [queue queueNotifyBlock:^{ notifyVal = val; [semaphore signal]; } inGroup:group];
+  [queue notify:^{ notifyVal = val; [semaphore signal]; } inGroup:group];
 
   [semaphore wait];
   XCTAssertEqual(notifyVal, 100);
@@ -113,11 +113,11 @@
   __block int32_t barrierVal = 0;
 
   for (int i = 0; i < 100; ++i) {
-    [queue queueBlock:^{ OSAtomicIncrement32(&val); }];
+    [queue asynchronously:^{ OSAtomicIncrement32(&val); }];
   }
-  [queue queueBarrierBlock:^{ barrierVal = val; [semaphore signal]; }];
+  [queue barrierAsynchronously:^{ barrierVal = val; [semaphore signal]; }];
   for (int i = 0; i < 100; ++i) {
-    [queue queueBlock:^{ OSAtomicIncrement32(&val); }];
+    [queue asynchronously:^{ OSAtomicIncrement32(&val); }];
   }
 
   [semaphore wait];
@@ -129,9 +129,9 @@
   __block int32_t val = 0;
   
   for (int i = 0; i < 100; ++i) {
-    [queue queueBlock:^{ OSAtomicIncrement32(&val); }];
+    [queue asynchronously:^{ OSAtomicIncrement32(&val); }];
   }
-  [queue queueAndAwaitBarrierBlock:^{}];
+  [queue barrierSynchronously:^{}];
   XCTAssertEqual(val, 100);
 }
 

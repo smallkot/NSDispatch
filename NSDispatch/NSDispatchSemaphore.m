@@ -22,7 +22,8 @@
 }
 
 - (instancetype)initWithDispatchSemaphore:(dispatch_semaphore_t)semaphore {
-    if ((self = [super init]) != nil) {
+    self = [super init];
+    if (self) {
         self.semaphore = semaphore;
     }
     
@@ -31,16 +32,16 @@
 
 #pragma mark Public methods.
 
-- (BOOL)signal {
-    return dispatch_semaphore_signal(self.semaphore) != 0;
+- (NSInteger)signal {
+    return dispatch_semaphore_signal(self.semaphore);
 }
 
-- (void)wait {
-    dispatch_semaphore_wait(self.semaphore, DISPATCH_TIME_FOREVER);
+- (NSInteger)wait {
+    return dispatch_semaphore_wait(self.semaphore, DISPATCH_TIME_FOREVER);
 }
 
-- (BOOL)wait:(double)seconds {
-    return dispatch_semaphore_wait(self.semaphore, dispatch_time(DISPATCH_TIME_NOW, (seconds * NSEC_PER_SEC))) == 0;
+- (NSInteger)wait:(NSTimeInterval)seconds {
+    return dispatch_semaphore_wait(self.semaphore, dispatch_time(DISPATCH_TIME_NOW, (seconds * NSEC_PER_SEC)));
 }
 
 @end

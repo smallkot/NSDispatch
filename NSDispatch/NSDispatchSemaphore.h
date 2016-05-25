@@ -8,7 +8,7 @@
 @interface NSDispatchSemaphore : NSObject
 
 /**
- *  Returns the underlying dispatch semaphore object.
+ *  The underlying dispatch semaphore object.
  *
  *  @return The dispatch semaphore object.
  */
@@ -16,52 +16,48 @@
 
 /**
  *  Initializes a new semaphore with starting value 0.
- *
- *  @return The initialized instance.
  *  @see dispatch_semaphore_create()
  */
 - (instancetype)init;
 
 /**
- *  Initializes a new semaphore.
+ *  Initializes a new semaphore with a given value.
  *
  *  @param value The starting value for the semaphore.
- *  @return The initialized instance.
  *  @see dispatch_semaphore_create()
  */
 - (instancetype)initWithValue:(long)value;
 
 /**
- *  The NSDispatchSemaphore designated initializer.
- *
+ *  Initializes a new semaphore with a given dispatch_semaphore_t.
  *  @param dispatchSemaphore A dispatch_semaphore_t object.
- *  @return The initialized instance.
  *  @see dispatch_semaphore_create()
  */
-- (instancetype)initWithDispatchSemaphore:(dispatch_semaphore_t)dispatchSemaphore;
+- (instancetype)initWithDispatchSemaphore:(dispatch_semaphore_t)dispatchSemaphore NS_DESIGNATED_INITIALIZER;
 
 /**
  *  Signals (increments) the semaphore.
  *
- *  @return YES if a thread is awoken, NO otherwise.
+ *  @return Non-zero if a thread is woken.
  *  @see dispatch_semaphore_signal()
  */
-- (BOOL)signal;
+- (NSInteger)signal;
 
 /**
- *  Waits forever for (decrements) the semaphore.
+ *  Waits forever for the semaphore.
  *
+ *  @return 0 on success, or non-zero if the timeout occurred.
  *  @see dispatch_semaphore_wait()
  */
-- (void)wait;
+- (NSInteger)wait;
 
 /**
  *  Waits for (decrements) the semaphore.
  *
  *  @param seconds The time to wait in seconds.
- *  @return YES on success, NO if the timeout occurred.
+ *  @return 0 on success, or non-zero if the timeout occurred.
  *  @see dispatch_semaphore_wait()
  */
-- (BOOL)wait:(double)seconds;
+- (NSInteger)wait:(double)seconds;
 
 @end

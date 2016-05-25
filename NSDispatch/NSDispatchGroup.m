@@ -36,11 +36,11 @@
     dispatch_group_leave(self.group);
 }
 
-- (void)wait {
-    dispatch_group_wait(self.group, DISPATCH_TIME_FOREVER);
+- (NSInteger)wait {
+    return dispatch_group_wait(self.group, DISPATCH_TIME_FOREVER);
 }
 
-- (BOOL)wait:(double)seconds {
+- (NSInteger)wait:(NSTimeInterval)seconds {
     return dispatch_group_wait(self.group, dispatch_time(DISPATCH_TIME_NOW, (seconds * NSEC_PER_SEC))) == 0;
 }
 

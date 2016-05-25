@@ -7,15 +7,11 @@
 
 @interface NSDispatchGroup : NSObject
 
-/**
- *  Returns the underlying dispatch group object.
- *
- *  @return The dispatch group object.
- */
+/** The underlying dispatch group object. */
 @property (strong, readonly, nonatomic) dispatch_group_t group;
 
 /**
- *  Initializes a new group.
+ *  Initializes a new dispatch group. You may use the +new convenience initializer instead.
  *
  *  @return The initialized instance.
  *  @see dispatch_group_create()
@@ -23,12 +19,10 @@
 - (instancetype)init;
 
 /**
- *  The NSDispatchGroup designated initializer.
- *
  *  @param dispatchGroup A dispatch_group_t object.
  *  @return The initialized instance.
  */
-- (instancetype)initWithDispatchGroup:(dispatch_group_t)group;
+- (instancetype)initWithDispatchGroup:(dispatch_group_t)group NS_DESIGNATED_INITIALIZER;
 
 /**
  *  Explicitly indicates that a block has entered the group.
@@ -47,17 +41,18 @@
 /**
  *  Waits forever for the previously submitted blocks in the group to complete.
  *
+ *  @return 0 if all blocks completed, or a non-zero value if the timeout occurred.
  *  @see dispatch_group_wait()
  */
-- (void)wait;
+- (NSInteger)wait;
 
 /**
  *  Waits for the previously submitted blocks in the group to complete.
  *
  *  @param seconds The time to wait in seconds.
- *  @return YES if all blocks completed, NO if the timeout occurred.
+ *  @return 0 if all blocks completed, or a non-zero value if the timeout occurred.
  *  @see dispatch_group_wait()
  */
-- (BOOL)wait:(double)seconds;
+- (NSInteger)wait:(NSTimeInterval)seconds;
 
 @end
