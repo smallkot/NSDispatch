@@ -1,0 +1,6 @@
+use_frameworks!
+target 'NSDispatch_Tests' do
+  pod 'NSDispatch', :path => '../'
+  
+  
+end

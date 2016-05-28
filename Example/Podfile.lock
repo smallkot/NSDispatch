@@ -1,0 +1,14 @@
+PODS:
+  - NSDispatch (1.0.0)
+
+DEPENDENCIES:
+  - NSDispatch (from `../`)
+
+EXTERNAL SOURCES:
+  NSDispatch:
+    :path: ../
+
+SPEC CHECKSUMS:
+  NSDispatch: f2252ad1e5d66214e40a2735ba262a9a233eb501
+
+COCOAPODS: 0.38.0
