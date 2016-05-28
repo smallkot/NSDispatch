@@ -33,3 +33,5 @@ It is very unlikely that Apple will ever make any classes using the designator `
 - Feel free to fork NSDispatch and change the class namespaces to some other two-or-three-letter designator and continue using it to your heart's desire.
 
 On the off chance than Apple ever does make an `NSDispatch` class/library, I will immediately deprecate this project.
+
+This code is provided as-is. Include it in your own projects at your own risk.
