@@ -1,1 +1,2 @@
 /Supporting\ Files/* linguist-vendored=true
+*.yml linguist-vendored=true
