@@ -12,10 +12,12 @@ NSDispatch is forked from [GCDObjC](https://github.com/mjmsmith/gcdobjc), who's 
 * Use more convenient arguments such as time intervals.
 * Add convenience methods.
 
+## Usage
+
 NSDispatch requires ARC and iOS 9.0. `NSDispatch.h` is the only header file that needs to be imported. For usage examples, see `NSDispatchTests.m`.
 
-## Installation
+To install NSDispatch via CocoaPods:
 
 - Add `pod 'NSDispatch'` to your podfile.
-- Open terminal in your project directory and type `pod install`
-- Use the generated workspace file from now on.
+- In Terminal, `cd /your-project-directory/` and type `pod install`.
+- Use the `.workspace` file that CocoaPods generates when working on your project from this point on.
