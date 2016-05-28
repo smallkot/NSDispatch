@@ -22,3 +22,14 @@ To install NSDispatch via CocoaPods:
 - Add `pod 'NSDispatch'` to your podfile.
 - In Terminal, `cd /your-project-directory/` and type `pod install`.
 - Use the `.workspace` file that CocoaPods generates when working on your project from this point on.
+
+## Warning
+
+This project uses the `NS` namespace for it's classes. Typically this namespace is typically [reserved for Apple classes](https://developer.apple.com/library/ios/documentation/Cocoa/Conceptual/ProgrammingWithObjectiveC/Conventions/Conventions.html) in Objective-C. However, the only point of this fun and quick little prtoject was to look, read, and behave as if it was an Apple created library for concurency. Changing the namespace to anything but `NS` would defeat the purpose of the project.
+
+It is very unlikely that Apple will ever make any classes using the designator `NSDispatch`, however if you are concerned about future compatibility because of something Apple might change then you should do one of the following things:
+- Use the project NSDispatch was forked from, [GDCObjC](https://github.com/mjmsmith/gcdobjc).
+- Use one of the [many](https://github.com/Tricertops/Grand-Object-Dispatch) [other](https://github.com/rsms/LazyDispatch) existing `libdispatch` Objective-C wrappers avaliable.
+- Feel free to fork NSDispatch and change the class namespaces to some other two-or-three-letter designator and continue using it to your heart's desire.
+
+On the off chance than Apple ever does make an `NSDispatch` class/library, I will immediately deprecate this project.
