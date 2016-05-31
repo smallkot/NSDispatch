@@ -7,7 +7,7 @@
 
 @class NSDispatchGroup;
 
-typedef NS_ENUM(NSUInteger, NSDispatchQueuePriority)
+typedef NS_ENUM(NSInteger, NSDispatchQueuePriority)
 {
     NSDispatchQueuePriorityDefault    = DISPATCH_QUEUE_PRIORITY_DEFAULT,
     NSDispatchQueuePriorityBackground = DISPATCH_QUEUE_PRIORITY_BACKGROUND,
