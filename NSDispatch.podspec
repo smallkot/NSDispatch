@@ -11,6 +11,7 @@ Pod::Spec.new do |s|
   s.social_media_url = 'https://twitter.com/markmalstrom'
 
   s.ios.deployment_target = '7.0'
+  s.osx.deployment_target = '10.8'
 
   s.source_files = 'NSDispatch/Classes/**/*'
 end
