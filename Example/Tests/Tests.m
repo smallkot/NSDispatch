@@ -18,12 +18,12 @@
     XCTAssertEqual([NSDispatchQueue mainQueue].queue, dispatch_get_main_queue());
 }
 
-/* - (void)testGlobalQueues {
-    XCTAssertEqual([NSDispatchQueue globalQueue].queue, dispatch_get_global_queue(DISPATCH_QUEUE_PRIORITY_DEFAULT, 0));
-    XCTAssertEqual([NSDispatchQueue highPriorityGlobalQueue].queue, dispatch_get_global_queue(DISPATCH_QUEUE_PRIORITY_HIGH, 0));
-    XCTAssertEqual([NSDispatchQueue lowPriorityGlobalQueue].queue, dispatch_get_global_queue(DISPATCH_QUEUE_PRIORITY_LOW, 0));
-    XCTAssertEqual([NSDispatchQueue backgroundPriorityGlobalQueue].queue, dispatch_get_global_queue(DISPATCH_QUEUE_PRIORITY_BACKGROUND, 0));
-} */
+- (void)testGlobalQueues {
+    XCTAssertEqual([NSDispatchQueue globalQueue:(NSDispatchQueuePriority)NSDispatchQueuePriorityDefault].queue, dispatch_get_global_queue(DISPATCH_QUEUE_PRIORITY_DEFAULT, 0));
+    XCTAssertEqual([NSDispatchQueue globalQueue:(NSDispatchQueuePriority)NSDispatchQueuePriorityHigh].queue, dispatch_get_global_queue(DISPATCH_QUEUE_PRIORITY_HIGH, 0));
+    XCTAssertEqual([NSDispatchQueue globalQueue:(NSDispatchQueuePriority)NSDispatchQueuePriorityLow].queue, dispatch_get_global_queue(DISPATCH_QUEUE_PRIORITY_LOW, 0));
+    XCTAssertEqual([NSDispatchQueue globalQueue:(NSDispatchQueuePriority)NSDispatchQueuePriorityBackground].queue, dispatch_get_global_queue(DISPATCH_QUEUE_PRIORITY_BACKGROUND, 0));
+}
 
 - (void)testQueueBlock {
     NSDispatchSemaphore *semaphore = [NSDispatchSemaphore new];
@@ -135,20 +135,20 @@
     XCTAssertEqual(val, 100);
 }
 
-/* static int onceVal;
+static int onceVal;
 
 - (void)onceBlock {
-    NSDispatchExecOnce(^{ ++onceVal; });
+    NSDispatchOnce(^{ ++onceVal; });
 }
 
-- (void)testExecOnce {
+- (void)testOnce {
     onceVal = 0;
     for (int i = 0; i < 100; ++i) {
         [self onceBlock];
     }
-
+    
     XCTAssertEqual(onceVal, 1);
-} */
+}
 
 + (instancetype)theTestInstance {
     NSDispatchSharedInstance(^{ return [self new]; });
