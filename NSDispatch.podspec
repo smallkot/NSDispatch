@@ -1,7 +1,7 @@
 
 Pod::Spec.new do |s|
   s.name             = 'NSDispatch'
-  s.version          = '1.0.0'
+  s.version          = '1.0.1'
   s.summary          = 'An Objective-C wrapper for libdispatch, named using Cocoa API convention.'
 
   s.homepage         = 'https://github.com/roonieone/NSDispatch'
@@ -10,6 +10,7 @@ Pod::Spec.new do |s|
   s.source           = { :git => 'https://github.com/roonieone/NSDispatch.git', :tag => s.version.to_s }
   s.social_media_url = 'https://twitter.com/markmalstrom'
 
+  s.requires_arc = true
   s.ios.deployment_target = '7.0'
   s.osx.deployment_target = '10.8'
 
