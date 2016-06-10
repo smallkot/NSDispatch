@@ -15,7 +15,7 @@ NSDispatch is forked from [GCDObjC](https://github.com/mjmsmith/gcdobjc), who's 
 
 ## Usage
 
-NSDispatch requires ARC and iOS 9.0. `NSDispatch.h` is the only header file that needs to be imported. For usage examples, see `NSDispatchTests.m`.
+NSDispatch requires ARC. `NSDispatch.h` is the only header file that needs to be imported. For usage examples, see `NSDispatchTests.m`.
 
 To install NSDispatch via CocoaPods:
 
